@@ -22,7 +22,13 @@ public class User implements Serializable {
     @Column(name = "email",nullable = false,unique = true,length = 50)
     private String email;
 
-    @Column(name = "password",nullable = false,length = 50)
+    @Column(name = "password",nullable = false,length = 60)
     private String password;
+
+    @Column(name = "is_email_enabled")
+    private boolean isEmailEnabled;
+
+    @Column(name = "verification",updatable = false,nullable = false)
+    private int verificationCode;
 
 }
