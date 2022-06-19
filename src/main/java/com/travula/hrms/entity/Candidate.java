@@ -30,6 +30,8 @@ public class Candidate {
     @Column(name = "birth_year",nullable = false,length = 4)
     private int birthYear;
 
+
+
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;

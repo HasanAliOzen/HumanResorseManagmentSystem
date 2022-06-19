@@ -34,9 +34,6 @@ public class CandidateServiceImpl implements CandidateService {
             return  new ErrorResult("Cannot add candidate because nationality id already exist!!!");
         }
 
-
-
-
         Candidate candidate = new Candidate();
         candidate.setFirstName(candidateDto.getFirstName());
         candidate.setLastName(candidateDto.getLastName());
