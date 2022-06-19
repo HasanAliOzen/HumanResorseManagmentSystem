@@ -1,9 +1,6 @@
 package com.travula.hrms.service.impl;
 
-import com.travula.hrms.core.utilities.results.DataResult;
-import com.travula.hrms.core.utilities.results.Result;
-import com.travula.hrms.core.utilities.results.SuccessDataResult;
-import com.travula.hrms.core.utilities.results.SuccessResult;
+import com.travula.hrms.core.utilities.results.*;
 import com.travula.hrms.dto.EmployerDto;
 import com.travula.hrms.entity.Employer;
 import com.travula.hrms.entity.User;
@@ -27,11 +24,16 @@ public class EmployerServiceImpl implements EmployerService {
     @Override
     public Result addEmployer(EmployerDto employerDto) {
 
+        if(this.userService.isEmailExist(employerDto.getUserDto().getEmail())){
+            return new ErrorResult("Cannot add employer because email already exist!!!");
+        }
 
         Employer employer = new Employer();
         employer.setCompanyName(employerDto.getCompanyName());
         employer.setWebPage(employerDto.getWebPage());
         employer.setPhoneNumber(employerDto.getPhoneNumber());
+        employer.setEnabled(false);
+        employer.setEnablerSystemPersonal(null);
 
         User user = this.userService.add(employerDto.getUserDto());
 
@@ -39,6 +41,12 @@ public class EmployerServiceImpl implements EmployerService {
 
         this.employerRepository.save(employer);
         return new SuccessResult("Employer user added Successfully!!!");
+    }
+
+    @Override
+    public void saveEmployer(Employer employer) {
+        //TODO
+        this.employerRepository.save(employer);
     }
 
     @Override
@@ -50,11 +58,23 @@ public class EmployerServiceImpl implements EmployerService {
             employerDto.setCompanyName(it.getCompanyName());
             employerDto.setWebPage(it.getWebPage());
             employerDto.setPhoneNumber(it.getPhoneNumber());
+            employerDto.setEnabled(it.isEnabled());
+
             employerDto.setUserDto(this.userService.getUserDto(it.getUser()));
 
             employerDtos.add(employerDto);
         });
 
         return new SuccessDataResult<>(employerDtos,"Listed Successfully");
+    }
+
+    @Override
+    public boolean existsById(Long id) {
+        return this.employerRepository.existsById(id);
+    }
+
+    @Override
+    public Employer getEmployerById(Long id) {
+        return this.employerRepository.getReferenceById(id);
     }
 }

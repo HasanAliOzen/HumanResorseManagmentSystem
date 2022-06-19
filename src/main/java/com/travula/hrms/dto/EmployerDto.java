@@ -1,11 +1,6 @@
 package com.travula.hrms.dto;
 
-import com.travula.hrms.entity.User;
 import lombok.Data;
-
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Data
 public class EmployerDto {
@@ -16,6 +11,8 @@ public class EmployerDto {
     private String webPage;
 
     private String phoneNumber;
+
+    private boolean isEnabled;
 
     private UserDto userDto;
 }
