@@ -36,8 +36,8 @@ public class JobPostController {
     }
 
     @GetMapping("get-all-active-job-posts-by-employer")
-    DataResult<List<JobPostDto>> getJobPostsByStatusAndEmployerName(@RequestParam String employeName){
-        return this.jobPostService.getJobPostsByStatusAndEmployerName(employeName);
+    DataResult<List<JobPostDto>> getJobPostsByStatusAndEmployerName(@RequestParam String employerName){
+        return this.jobPostService.getJobPostsByStatusAndEmployerName(employerName);
     }
 
     @PostMapping("change-status")

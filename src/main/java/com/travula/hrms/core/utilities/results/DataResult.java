@@ -2,7 +2,7 @@ package com.travula.hrms.core.utilities.results;
 
 public class DataResult<T> extends Result {
 
-    private T data;
+    private final T data;
 
     public DataResult(T data, boolean success, String message) {
         super(success, message);

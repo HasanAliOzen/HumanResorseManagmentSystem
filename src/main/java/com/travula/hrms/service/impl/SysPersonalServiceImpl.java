@@ -4,7 +4,6 @@ import com.travula.hrms.core.utilities.results.ErrorResult;
 import com.travula.hrms.core.utilities.results.Result;
 import com.travula.hrms.core.utilities.results.SuccessResult;
 import com.travula.hrms.entity.Employer;
-import com.travula.hrms.entity.SystemPersonal;
 import com.travula.hrms.repo.SysPersonalRepository;
 import com.travula.hrms.service.EmployerService;
 import com.travula.hrms.service.SysPersonalService;

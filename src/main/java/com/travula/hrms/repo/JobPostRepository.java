@@ -3,7 +3,6 @@ package com.travula.hrms.repo;
 import com.travula.hrms.entity.JobPost;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import javax.persistence.Id;
 import java.util.List;
 
 public interface JobPostRepository extends JpaRepository<JobPost,Long> {
