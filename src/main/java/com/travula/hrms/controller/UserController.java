@@ -6,12 +6,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user/")
+@RequestMapping("/controller/user/")
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
 
-    @PostMapping("enableEmail")
+    @PostMapping("enable-Email")
     public Result enableEmail(@RequestParam String email, @RequestParam int verificationCode){
         return this.userService.enableEmail(email,verificationCode);
     }

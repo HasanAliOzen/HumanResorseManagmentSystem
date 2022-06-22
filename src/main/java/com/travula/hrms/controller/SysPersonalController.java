@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/controller/")
+@RequestMapping("/controller/sys-personal/")
 @RequiredArgsConstructor
 public class SysPersonalController {
     private final SysPersonalService sysPersonalService;
 
-    @PostMapping("enableEmployer")
+    @PostMapping("enable-Employer")
     public Result enableEmployer(@RequestParam Long personalId,@RequestParam Long employerId){
         return this.sysPersonalService.enableEmployer(personalId,employerId);
     }

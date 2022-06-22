@@ -28,10 +28,10 @@ public class SysPersonalServiceImpl implements SysPersonalService {
             return  new ErrorResult("Failed!!! No employer with this id!!!");
         }
 
-        SystemPersonal systemPersonal = this.sysPersonalRepository.getReferenceById(personalId);
         Employer employer = this.employerService.getEmployerById(employerId);
+
         employer.setEnabled(true);
-        employer.setEnablerSystemPersonal(systemPersonal);
+
         this.employerService.saveEmployer(employer);
         return new SuccessResult("Employer verified");
     }

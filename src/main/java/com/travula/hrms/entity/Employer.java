@@ -30,10 +30,6 @@ public class Employer {
     @Column(name = "is_enabled")
     private boolean isEnabled;
 
-    @ManyToOne
-    @JoinColumn(name = "enabler_personal_id")
-    private SystemPersonal enablerSystemPersonal;
-
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;

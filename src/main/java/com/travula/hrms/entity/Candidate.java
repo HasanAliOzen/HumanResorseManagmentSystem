@@ -14,8 +14,8 @@ import javax.persistence.*;
 @Table(name = "candidates")
 public class Candidate {
     @Id
-    @SequenceGenerator(name = "seq_candidate_id100",allocationSize = 1)
-    @GeneratedValue(generator = "seq_candidate_id100",strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "seq_candidate_id",allocationSize = 1)
+    @GeneratedValue(generator = "seq_candidate_id",strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(name = "first_name",nullable = false,length = 50)
@@ -29,7 +29,6 @@ public class Candidate {
 
     @Column(name = "birth_year",nullable = false,length = 4)
     private int birthYear;
-
 
 
     @OneToOne

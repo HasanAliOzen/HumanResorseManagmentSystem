@@ -5,4 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EmployerRepository extends JpaRepository<Employer,Long> {
     boolean existsById (Long id);
+    boolean existsByCompanyName (String name);
+    Employer getByCompanyName(String name);
+
 }

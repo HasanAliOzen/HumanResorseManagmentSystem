@@ -10,6 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@EqualsAndHashCode(of = {"id"})
 @Table(name = "system_personal")
 public class SystemPersonal {
 

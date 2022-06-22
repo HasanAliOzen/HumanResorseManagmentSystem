@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode(of = {"id"})
 @Table(name = "job_position")
 public class JobPosition {
     @Id

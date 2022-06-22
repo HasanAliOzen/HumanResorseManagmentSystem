@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/jobposition/")
+@RequestMapping("/controller/job-position/")
 @RequiredArgsConstructor
 public class JobPositionController {
 
     private final JobPositionService jobPositionService;
 
-    @PostMapping("addjob")
+    @PostMapping("add-job")
     public Result addJob(@RequestBody JobPositionDto jobPositionDto){
         return this.jobPositionService.addJob(jobPositionDto);
     }
 
-    @GetMapping("getalljobs")
+    @GetMapping("get-all-jobs")
     public DataResult<List<JobPositionDto>> getAllJobs(){
         return jobPositionService.getAllJobs();
     }

@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/candidate/")
+@RequestMapping("/controller/candidate/")
 @RequiredArgsConstructor
 public class CandidateController {
     private final CandidateService candidateService;
 
-    @PostMapping("addcandidate")
+    @PostMapping("add-candidate")
     public Result addCandidate(@RequestBody CandidateDto candidateDto){
         return this.candidateService.addCandidate(candidateDto);
     }
 
-    @GetMapping("getallcandidates")
+    @GetMapping("get-all-candidates")
     public DataResult<List<CandidateDto>> getAllCandidates(){
         return this.candidateService.getAllCandidates();
     }

@@ -33,7 +33,6 @@ public class EmployerServiceImpl implements EmployerService {
         employer.setWebPage(employerDto.getWebPage());
         employer.setPhoneNumber(employerDto.getPhoneNumber());
         employer.setEnabled(false);
-        employer.setEnablerSystemPersonal(null);
 
         User user = this.userService.add(employerDto.getUserDto());
 
@@ -74,7 +73,17 @@ public class EmployerServiceImpl implements EmployerService {
     }
 
     @Override
+    public boolean existsByCompanyName(String name) {
+        return this.employerRepository.existsByCompanyName(name);
+    }
+
+    @Override
     public Employer getEmployerById(Long id) {
         return this.employerRepository.getReferenceById(id);
+    }
+
+    @Override
+    public Employer getByCompanyName(String name){
+        return this.employerRepository.getByCompanyName(name);
     }
 }

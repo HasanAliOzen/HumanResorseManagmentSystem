@@ -14,6 +14,8 @@ public interface EmployerService {
     DataResult<List<EmployerDto>> listEmployers();
 
     boolean existsById (Long id);
+    boolean existsByCompanyName (String name);
 
     Employer getEmployerById(Long id);
+    Employer getByCompanyName(String name);
 }

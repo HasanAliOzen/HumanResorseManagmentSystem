@@ -29,6 +29,13 @@ public class JobPositionServiceImpl implements JobPositionService {
     }
 
     @Override
+    public void addJob(String jobPositionName) {
+        JobPosition jobPosition =new JobPosition();
+        jobPosition.setJobName(jobPositionName);
+        this.jobPositionRepository.save(jobPosition);
+    }
+
+    @Override
     public DataResult<List<JobPositionDto>> getAllJobs() {
         List<JobPosition> jobPositions = this.jobPositionRepository.findAll();
         List<JobPositionDto> jobPositionDtos = new ArrayList<>();
@@ -44,7 +51,12 @@ public class JobPositionServiceImpl implements JobPositionService {
     }
 
     @Override
-    public DataResult<JobPositionDto> deleteJob(Long id) {
-        return null;
+    public JobPosition getJobPosition(String name) {
+        return this.jobPositionRepository.getByJobName(name);
+    }
+
+    @Override
+    public boolean existsByJobName(String name) {
+        return this.jobPositionRepository.existsByJobName(name);
     }
 }
